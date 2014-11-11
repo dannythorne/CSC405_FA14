@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Click Handler</title>
+</head>
+<body>
+
+<div>asdf</div>
+<div>asdf</div>
+<div>asdf</div>
+<div>asdf</div>
+
+<!-- HTML Comment -->
+
+<script>
+function clickhandler()
+{
+  if( this.innerHTML === "You clicked!")
+  {
+    this.innerHTML = this.id;
+    this.style.backgroundColor = "#ffffff";
+  }
+  else
+  {
+    this.innerHTML = "You clicked!";
+    this.style.backgroundColor = "#f0c090";
+  }
+}
+
+function main()
+{
+  var x = document.getElementsByTagName("div");
+
+  for( i=0; i<x.length; i++)
+  {
+    x[i].id = "div"+i;
+    x[i].onclick = clickhandler;
+  }
+}
+
+window.onload = main;
+
+</script>
+
+</body>
+</html>

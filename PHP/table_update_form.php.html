@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>~/public_html/CSC405_FA14/PHP/table_update_form.php.html</title>
+<meta name="Generator" content="Vim/7.2">
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-15">
+</head>
+<body bgcolor="#808080" text="#ffffff"><font face="monospace">
+<font color="#00ffff"><b>&lt;!DOCTYPE html&gt;</b></font><br>
+<font color="#00ffff"><b>&lt;</b></font><font color="#ffff00"><b>html</b></font><font color="#00ffff"><b>&gt;</b></font><br>
+<font color="#00ffff"><b>&lt;</b></font><font color="#ffff00"><b>head</b></font><font color="#00ffff"><b>&gt;</b></font><br>
+<font color="#00ffff"><b>&lt;</b></font><font color="#ffff00"><b>title</b></font><font color="#00ffff"><b>&gt;</b></font><span style="background-color: #808080"><font color="#8080ff"><b>Update a Row in a Table</b></font></span><font color="#00ffff"><b>&lt;/</b></font><font color="#ffff00"><b>title</b></font><font color="#00ffff"><b>&gt;</b></font><br>
+<font color="#00ffff"><b>&lt;/</b></font><font color="#ffff00"><b>head</b></font><font color="#00ffff"><b>&gt;</b></font><br>
+<font color="#00ffff"><b>&lt;</b></font><font color="#ffff00"><b>body</b></font><font color="#00ffff"><b>&gt;</b></font><br>
+<br>
+<font color="#00ffff"><b>&lt;</b></font><font color="#ffff00"><b>h1</b></font><font color="#00ffff"><b>&gt;</b></font><span style="background-color: #808080"><font color="#8080ff"><b>Update a Person in the People Table</b></font></span><font color="#00ffff"><b>&lt;/</b></font><font color="#ffff00"><b>h1</b></font><font color="#00ffff"><b>&gt;</b></font><br>
+<br>
+<font color="#ff6060"><b>&lt;?php</b></font><br>
+<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>id</b></font>&nbsp;<font color="#ffff00"><b>=</b></font>&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>_GET</b></font><font color="#ff6060"><b>[</b></font>&quot;<font color="#ff40ff"><b>id</b></font>&quot;<font color="#ff6060"><b>]</b></font>;<br>
+<br>
+<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>host</b></font>&nbsp;<font color="#ffff00"><b>=</b></font>&nbsp;&quot;&quot;;<br>
+<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>username</b></font>&nbsp;<font color="#ffff00"><b>=</b></font>&nbsp;&quot;<font color="#ff40ff"><b>dthorne0_fa14</b></font>&quot;;<br>
+<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>password</b></font>&nbsp;<font color="#ffff00"><b>=</b></font>&nbsp;&quot;&quot;;<br>
+<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>database</b></font>&nbsp;<font color="#ffff00"><b>=</b></font>&nbsp;&quot;<font color="#ff40ff"><b>dthorne0_fa14</b></font>&quot;;<br>
+<br>
+<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>mysqli</b></font>&nbsp;<font color="#ffff00"><b>=</b></font>&nbsp;<font color="#8080ff"><b>new</b></font>&nbsp;mysqli<font color="#ff6060"><b>(</b></font>&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>host</b></font>, <font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>username</b></font>, <font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>password</b></font>,&nbsp;&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>database</b></font><font color="#ff6060"><b>)</b></font>;<br>
+<br>
+<font color="#ffff00"><b>if</b></font><font color="#ff6060"><b>(</b></font>&nbsp;mysqli_connect_errno<font color="#ff6060"><b>())</b></font><br>
+<font color="#ff6060"><b>{</b></font><br>
+&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;&quot;<font color="#ff40ff"><b>Error connecting...</b></font>&quot;;<br>
+<font color="#ff6060"><b>}</b></font><br>
+<font color="#ffff00"><b>else</b></font><br>
+<font color="#ff6060"><b>{</b></font><br>
+&nbsp;&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>query</b></font>&nbsp;<font color="#ffff00"><b>=</b></font>&nbsp;&quot;<font color="#ff40ff"><b>select * from People where id=</b></font>&quot;<font color="#ffff00"><b>.</b></font><font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>id</b></font><font color="#ffff00"><b>.</b></font>&quot;<font color="#ff40ff"><b>;</b></font>&quot;;<br>
+<br>
+&nbsp;&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>result</b></font>&nbsp;<font color="#ffff00"><b>=</b></font>&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>mysqli</b></font><font color="#00ff00"><b>-&gt;</b></font>query<font color="#ff6060"><b>(</b></font><font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>query</b></font><font color="#ff6060"><b>)</b></font>;<br>
+<br>
+&nbsp;&nbsp;<font color="#ffff00"><b>if</b></font><font color="#ff6060"><b>(</b></font>&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>result</b></font><font color="#ff6060"><b>)</b></font><br>
+&nbsp;&nbsp;<font color="#ff6060"><b>{</b></font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ffff00"><b>if</b></font><font color="#ff6060"><b>(</b></font>&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>result</b></font><font color="#00ff00"><b>-&gt;</b></font>num_rows&nbsp;<font color="#ffff00"><b>&gt;</b></font>&nbsp;<font color="#ff40ff"><b>1</b></font><font color="#ff6060"><b>)</b></font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff6060"><b>{</b></font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;&quot;<font color="#ff40ff"><b>Unhandled case: Multiple rows returned!</b></font>&quot;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff6060"><b>}</b></font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ffff00"><b>else</b></font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff6060"><b>{</b></font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>row</b></font>&nbsp;<font color="#ffff00"><b>=</b></font>&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>result</b></font><font color="#00ff00"><b>-&gt;</b></font>fetch_row<font color="#ff6060"><b>()</b></font>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>name</b></font>&nbsp;<font color="#ffff00"><b>=</b></font>&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>row</b></font><font color="#ff6060"><b>[</b></font><font color="#ff40ff"><b>1</b></font><font color="#ff6060"><b>]</b></font>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>age</b></font>&nbsp;<font color="#ffff00"><b>=</b></font>&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>row</b></font><font color="#ff6060"><b>[</b></font><font color="#ff40ff"><b>2</b></font><font color="#ff6060"><b>]</b></font>;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;'<font color="#ff40ff"><b>&lt;form action=&quot;table_update.php&quot;&gt;</b></font>';<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;&quot;<font color="#ff40ff"><b>&lt;input type='hidden' name='id' value='</b></font>&quot;<font color="#ffff00"><b>.</b></font><font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>id</b></font><font color="#ffff00"><b>.</b></font>&quot;<font color="#ff40ff"><b>' /&gt;</b></font>&quot;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;'<font color="#ff40ff"><b>&lt;div&gt;</b></font>';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;'<font color="#ff40ff"><b>Name: </b></font>';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;'<font color="#ff40ff"><b>&lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;</b></font>'<font color="#ffff00"><b>.</b></font><font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>name</b></font><font color="#ffff00"><b>.</b></font>'<font color="#ff40ff"><b>&quot; /&gt;</b></font>';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;'<font color="#ff40ff"><b>&lt;/div&gt;</b></font>';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;'<font color="#ff40ff"><b>&lt;div&gt;</b></font>';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;'<font color="#ff40ff"><b>Age:&nbsp;&nbsp;</b></font>';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;'<font color="#ff40ff"><b>&lt;input type=&quot;text&quot; name=&quot;age&quot; value=&quot;</b></font>'<font color="#ffff00"><b>.</b></font><font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>age</b></font><font color="#ffff00"><b>.</b></font>'<font color="#ff40ff"><b>&quot; /&gt;</b></font>';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;'<font color="#ff40ff"><b>&lt;/div&gt;</b></font>';<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;'<font color="#ff40ff"><b>&lt;div&gt;&lt;input type=&quot;submit&quot; value=&quot;Add&quot;/&gt;&lt;/div&gt;</b></font>';<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;'<font color="#ff40ff"><b>&lt;/form&gt;</b></font>';<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff6060"><b>}</b></font><br>
+&nbsp;&nbsp;<font color="#ff6060"><b>}</b></font><br>
+&nbsp;&nbsp;<font color="#ffff00"><b>else</b></font><br>
+&nbsp;&nbsp;<font color="#ff6060"><b>{</b></font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8080ff"><b>echo</b></font>&nbsp;&quot;<font color="#ff40ff"><b>Error querying...</b></font>&quot;;<br>
+&nbsp;&nbsp;<font color="#ff6060"><b>}</b></font><br>
+<br>
+&nbsp;&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>result</b></font><font color="#00ff00"><b>-&gt;</b></font>free<font color="#ff6060"><b>()</b></font>;<br>
+<br>
+&nbsp;&nbsp;<font color="#ffff00"><b>$</b></font><font color="#00ffff"><b>mysqli</b></font><font color="#00ff00"><b>-&gt;</b></font>close<font color="#ff6060"><b>()</b></font>;<br>
+<font color="#ff6060"><b>}</b></font><br>
+<br>
+<font color="#ff6060"><b>?&gt;</b></font><br>
+<br>
+<font color="#00ffff"><b>&lt;/</b></font><font color="#ffff00"><b>body</b></font><font color="#00ffff"><b>&gt;</b></font><br>
+<font color="#00ffff"><b>&lt;/</b></font><font color="#ffff00"><b>html</b></font><font color="#00ffff"><b>&gt;</b></font><br>
+</font></body>
+</html>

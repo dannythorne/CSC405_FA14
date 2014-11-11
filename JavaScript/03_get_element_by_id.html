@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Get Element By Id</title>
+<style>
+div
+{
+  background-color:#d0d0d0;
+}
+</style>
+</head>
+<body>
+
+<div id="title">xyz</div>
+<div>xyz</div>
+<div>xyz</div>
+<div>xyz</div>
+<div>xyz</div>
+
+<script>
+var main = function()
+{
+  var x = document.getElementById("title");
+
+  x.innerHTML = document.title;
+  x.style.backgroundColor = "#90c0ff";
+
+}
+window.onload = main;
+</script>
+
+</body>
+</html>

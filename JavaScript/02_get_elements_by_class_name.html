@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Get Elements By Class Name</title>
+<style>
+div
+{
+  margin:1px;
+  padding:0.5em;
+}
+.cooldiv
+{
+  background-color:#6090f0;
+}
+.warmdiv
+{
+  background-color:#f09060;
+}
+</style>
+</head>
+<body>
+
+<div class="cooldiv">x</div>
+<div class="cooldiv">x</div>
+<div class="warmdiv">x</div>
+<div class="warmdiv">x</div>
+<div class="cooldiv">x</div>
+<div class="cooldiv">x</div>
+
+<script>
+var main = function()
+{
+  var x = document.getElementsByClassName("cooldiv");
+
+  for( i=0; i<x.length; i++)
+  {
+    x[i].innerHTML = "This is div "
+                   + (i+1)
+                   + " of "
+                   + x.length
+                   + "."
+                   ;
+  }
+
+  x = document.getElementsByClassName("warmdiv");
+
+  for( i in x)
+  {
+    x[i].innerHTML = "I'm warm!";
+  }
+
+}
+window.onload = main;
+</script>
+
+</body>
+</html>

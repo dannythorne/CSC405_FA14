@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Get Elements By Tag Name</title>
+</head>
+<body>
+
+<div>
+asdf
+</div>
+<div>
+asdf
+</div>
+
+<span>
+asdf
+</span>
+<span>
+asdf
+</span>
+
+<script>
+window.onload = function()
+{
+  var x;
+  x = document.getElementsByTagName("div");
+
+  for( i=0; i<x.length; i++)
+  {
+    x[i].innerHTML = "div " + (i+1);
+  }
+}
+</script>
+
+</body>
+</html>
